@@ -10,8 +10,12 @@
           <option name="url" value="https://github.com/romabelka/basic-react-10-09" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/shamandrey/basic-react-10-09.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="E:\ubuntu" />
+    <option name="cloneParentDir" value="E:\lern" />
   </component>
 </application>
