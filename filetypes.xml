@@ -4,6 +4,7 @@
       <mapping pattern=".flowconfig" type="Flow" />
       <mapping ext="js___jb_tmp___" type="PLAIN_TEXT" />
       <mapping ext="otf" type="PLAIN_TEXT" />
+      <mapping pattern="HatMenu" type="Vue.js file" />
     </extensionMap>
   </component>
 </application>
