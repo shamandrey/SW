@@ -50,7 +50,7 @@
         Axios.defaults.headers.get['Content-Type'] ='application/x-www-form-urlencoded';
         let randomIndex
         if (this.countPlanet) {
-          randomIndex = randomInteger(0, me.countPlanet)
+          randomIndex = randomInteger(0, this.countPlanet)
           Axios.get(`https://swapi.co/api/planets/${randomIndex}/`)
             .then(response => {
             this.population = response.data.population;

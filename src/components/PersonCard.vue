@@ -8,10 +8,10 @@
                 {{ person.name }}
             </div>
             <div class='attr'>
-                <ui>
+                <ul>
                     <li><span>Gender :</span>{{ person.gender }}</li>
                     <li><span>Eye Color :</span>{{ person.eye_color }}</li>
-                </ui>
+                </ul>
             </div>
         </div>
     </div>
@@ -54,7 +54,7 @@ props: ['person']
         text-align: left;
     }
 
-    ui {
+    ul {
         padding: 0px 0px 0px 20px;
         list-style: none;
         margin: 20px;
@@ -64,7 +64,7 @@ props: ['person']
         padding: 0px 0px 0px 20px;
     }
 
-    ui > li {
+    ul > li {
         border-top: solid;
         border-width: 1px;
     }
