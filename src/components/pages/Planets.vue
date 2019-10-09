@@ -46,7 +46,7 @@
 //            debugger;
           })
           .catch(e => {
-            me.loading = false
+           this.loading = false
             // eslint-disable-next-line
             console.log(e)
           })
