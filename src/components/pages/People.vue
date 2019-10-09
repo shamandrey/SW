@@ -1,9 +1,9 @@
 <template>
 <div class="main-people">
     <div class="list">
-        <ui>
+        <ul>
             <li v-for="(man, index) in people" :key="index" @click="openCard(index)" :class="{'selected': select===index}">{{man.name}}</li>
-        </ui>
+        </ul>
     </div>
     <div class="card">
         <person-card  v-if="person" :person="person"></person-card>
@@ -38,11 +38,11 @@ export default {
   },
 
   mounted() {
-    let me = this;
+    //let me = this;
     Axios
       .get('https://swapi.co/api/people/')
       .then(response => {
-        me.people = response.data.results
+        this.people = response.data.results
         // eslint-disable-next-line
       }).catch(e=> console.log(e))
   }
@@ -61,10 +61,20 @@ export default {
     .selected {
         background-color: aqua;
     }
+    ul {
+      display: block;
+      list-style-type: disc;
+      margin-block-start: 0em;
+      margin-block-end: 0em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 0px;
+}
 
     .list {
         width: 50%;
         background-color: #b4b4b4;
+	overflow-x: overlay;
     }
 
     li {
