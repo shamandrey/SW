@@ -10,11 +10,11 @@
             {{ ship.name }}
         </div>
         <div class='attr'>
-            <ui>
+            <ul>
                 <li><span>Model :</span>{{ ship.model }}</li>
                 <li><span>Length :</span>{{ ship.length }}</li>
                 <li><span>Cost :</span>{{ ship.cost_in_credits }}</li>
-            </ui>
+            </ul>
         </div>
     </div>
 </div>
@@ -23,7 +23,12 @@
 <script>
   import Axios from 'axios'
   export default {
-    props: ['ship'],
+    data() {
+	return {
+	    ship: {}
+	}
+    },
+//    props: ['ship'],
     mounted() {
       let me = this,
           id = this.$route.params.id
@@ -80,7 +85,7 @@
         display: flex;
     }
 
-    ui {
+    ul {
         padding: 0px 0px 0px 20px;
         list-style: none;
         margin: 20px;
@@ -90,7 +95,7 @@
         padding: 0px 0px 0px 20px;
     }
 
-    ui > li {
+    ul > li {
         border-top: solid;
         border-width: 1px;
     }

@@ -80,7 +80,7 @@
               this.rotation_period = response.data.rotation_period;
               this.name = response.data.name;
               this.diameter = response.data.diameter;
-              this.image = `https://starwars-visualguide.com/assets/img/planets/${me.randomIndex}.jpg`;
+              this.image = `https://starwars-visualguide.com/assets/img/planets/${this.randomIndex}.jpg`;
               this.onePlanet = response.data;
             })
             .catch((/*err*/) => {
