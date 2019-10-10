@@ -1,11 +1,11 @@
 <template>
     <div class="main-planet">
         <div class="list">
-            <ui>
+            <ul>
                 <li v-for="(planet, index) in planets" :key="index" @click="openCards(index)"
                     :class="{'selected': select===index}">{{planet.name}}
                 </li>
-            </ui>
+            </ul>
         </div>
         <div class="cards">
             <div v-if="people.length===0&&select>=0&&loading===false">Безжизненный кусок камня.</div>
@@ -32,8 +32,7 @@
     },
     methods: {
       openCards(index) {
-        let residents = this.planets[index] ? this.planets[index].residents : [],
-          me = this;
+        let residents = this.planets[index] ? this.planets[index].residents : []
         this.select = index
         this.loading = true
         this.people = []
@@ -41,13 +40,13 @@
           return Axios.get(v)
         }))
           .then(response => {
-            me.loading = false
+            this.loading = false
             this.people = response.map(v => v.data)
             // eslint-disable-next-line
 //            debugger;
           })
           .catch(e => {
-            me.loading = false
+           this.loading = false
             // eslint-disable-next-line
             console.log(e)
           })
@@ -56,11 +55,10 @@
       }
     },
     mounted() {
-      let me = this;
       Axios
         .get('https://swapi.co/api/planets/')
         .then(response => {
-          me.planets = response.data.results
+          this.planets = response.data.results
           // eslint-disable-next-line
         }).catch(e => console.log(e))
     }
@@ -83,6 +81,7 @@
         width: 50%;
         background-color: #b4b4b4;
         margin-right: 10px;
+	overflow-x: overlay;
     }
 
     li {
@@ -90,12 +89,21 @@
         border: solid;
         border-width: 1px;
         cursor: pointer;
+	list-style-type: none;
     }
 
     li:hover {
         background-color: darkgrey;
     }
-
+    ul {
+      display: block;
+      list-style-type: disc;
+      margin-block-start: 0em;
+      margin-block-end: 0em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 0px;
+    }
     .cards {
         display: flex;
         flex-direction: column;

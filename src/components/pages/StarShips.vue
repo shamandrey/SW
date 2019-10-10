@@ -1,9 +1,9 @@
 <template>
     <div class="main">
         <div class="list">
-            <ui>
+            <ul>
                 <li v-for="(ship, index) in ships" :key="ship.id" @click="openShip(ship.id)" :class="{'selected': select===index}">{{ship.name}}</li>
-            </ui>
+            </ul>
         </div>
     </div>
 </template>
@@ -33,11 +33,10 @@
     },
 
     mounted() {
-      let me = this;
       Axios
         .get('https://swapi.co/api/starships/ ')
         .then(response => {
-          me.ships = response.data.results.map(v => {
+          this.ships = response.data.results.map(v => {
             v.id = v.url.replace(/https:\/\/|http:\/\//, '')
               .split('/')
               .filter(v => v)
@@ -66,6 +65,17 @@
     .list {
         width: 100%;
         background-color: #b4b4b4;
+        overflow-x: overlay;
+    }
+
+    ul {
+      display: block;
+      list-style-type: disc;
+      margin-block-start: 0em;
+      margin-block-end: 0em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 0px;
     }
 
     li {

@@ -48,18 +48,17 @@
       },
       getRandomPlanet(){
         Axios.defaults.headers.get['Content-Type'] ='application/x-www-form-urlencoded';
-        let me = this,
-          randomIndex
-        if (me.countPlanet) {
-          randomIndex = randomInteger(0, me.countPlanet)
+        let randomIndex
+        if (this.countPlanet) {
+          randomIndex = randomInteger(0, this.countPlanet)
           Axios.get(`https://swapi.co/api/planets/${randomIndex}/`)
             .then(response => {
-            me.population = response.data.population;
-            me.rotation_period = response.data.rotation_period;
-            me.name = response.data.name;
-            me.diameter = response.data.diameter;
-            me.image = `https://starwars-visualguide.com/assets/img/planets/${randomIndex}.jpg`;
-            me.onePlanet = response.data;
+            this.population = response.data.population;
+            this.rotation_period = response.data.rotation_period;
+            this.name = response.data.name;
+            this.diameter = response.data.diameter;
+            this.image = `https://starwars-visualguide.com/assets/img/planets/${randomIndex}.jpg`;
+            this.onePlanet = response.data;
           })
           .catch((/*err*/) => {
             // handle err
@@ -70,19 +69,19 @@
             .then(response => {
 
               let data = response.data
-              me.countPlanet = data.count
-              randomIndex = randomInteger(0, me.countPlanet)
-              me.randomIndex = randomIndex
+              this.countPlanet = data.count
+              randomIndex = randomInteger(0, this.countPlanet)
+              this.randomIndex = randomIndex
               return Axios(`https://swapi.co/api/planets/${randomIndex}/`)
 
             })
             .then(response => {
-              me.population = response.data.population;
-              me.rotation_period = response.data.rotation_period;
-              me.name = response.data.name;
-              me.diameter = response.data.diameter;
-              me.image = `https://starwars-visualguide.com/assets/img/planets/${me.randomIndex}.jpg`;
-              me.onePlanet = response.data;
+              this.population = response.data.population;
+              this.rotation_period = response.data.rotation_period;
+              this.name = response.data.name;
+              this.diameter = response.data.diameter;
+              this.image = `https://starwars-visualguide.com/assets/img/planets/${me.randomIndex}.jpg`;
+              this.onePlanet = response.data;
             })
             .catch((/*err*/) => {
               // handle err

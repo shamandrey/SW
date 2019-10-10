@@ -56,6 +56,7 @@
         border-left-width: medium;
         border-width: 0px 1px 4px;
         height: max-content;
+	margin: 10px;
     }
 
     .name {

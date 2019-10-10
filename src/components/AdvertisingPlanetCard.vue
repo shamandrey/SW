@@ -9,12 +9,12 @@
                 {{ name }}
             </div>
             <div class='attr'>
-                <ui>
+                <ul>
                     <li><span>Population :</span>{{ population }}</li>
                     <li><span>Rotation period :</span>{{ rotation_period }}</li>
                     <li><span>Diameter :</span>{{ diameter }}</li>
 
-                </ui>
+                </ul>
             </div>
         </div>
     </div>
@@ -53,6 +53,7 @@
         display: block;
         padding: 5px 0px 0px 5px;
         flex: 0.1;
+	min-width: 8em;
     }
 
     .ava-planet > img {
@@ -62,7 +63,15 @@
         text-align: center !important;
         line-height: -moz-block-height;
     }
-
+    ul {
+      display: block;
+      list-style-type: disc;
+      margin-block-start: 1em;
+      margin-block-end: 0em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+      padding-inline-start: 0px;
+    }
     .card {
         padding: 0px 0px 0px 20px;
         text-align: left;
@@ -78,8 +87,9 @@
         padding: 0px 0px 0px 20px;
     }
 
-    ui > li {
+    ul > li {
         border-top: solid;
         border-width: 1px;
+	list-style-type: none;
     }
 </style>
